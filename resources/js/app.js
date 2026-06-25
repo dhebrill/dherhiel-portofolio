@@ -134,6 +134,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 imageModal.classList.add('flex');
             } catch (err) {
                 console.error(err);
+                imageModalTitle.textContent = 'Gagal memuat sertifikat. File mungkin tidak tersedia.';
+                imageModalImg.style.display = 'none';
+                imageModalPdf.style.display = 'none';
+                imageModal.classList.remove('hidden');
+                imageModal.classList.add('flex');
             }
         });
     });
