@@ -1,7 +1,7 @@
 @php($profile = config('portfolio.profile'))
 
 <section id="home" class="hero-vignette relative flex min-h-screen items-center overflow-hidden pt-24">
-    <div class="mx-auto grid w-full max-w-6xl items-center gap-12 px-6 lg:grid-cols-2">
+    <div class="mx-auto grid w-full max-w-6xl items-center gap-8 px-6 lg:grid-cols-2 lg:gap-12">
         {{-- Left: text --}}
         <div class="reveal">
             <span class="pill">

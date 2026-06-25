@@ -1,6 +1,6 @@
 @php($experience = config('portfolio.experience'))
 
-<section id="experience" class="mx-auto max-w-6xl px-6 py-24">
+<section id="experience" class="mx-auto max-w-6xl px-6 py-16 sm:py-24">
     <div class="reveal">
         <p class="text-sm font-semibold uppercase tracking-widest text-accent-cyan">Experience</p>
         <h2 class="section-title mt-2">Work Experience</h2>

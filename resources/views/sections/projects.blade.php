@@ -1,4 +1,4 @@
-<section id="projects" class="mx-auto max-w-6xl px-6 py-24">
+<section id="projects" class="mx-auto max-w-6xl px-6 py-16 sm:py-24">
     <div class="reveal">
         <p class="text-sm font-semibold uppercase tracking-widest text-accent-cyan">Projects</p>
         <h2 class="section-title mt-2">Selected Work</h2>

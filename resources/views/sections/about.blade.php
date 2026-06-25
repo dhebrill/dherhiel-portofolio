@@ -1,12 +1,12 @@
 @php($profile = config('portfolio.profile'))
 
-<section id="about" class="mx-auto max-w-6xl px-6 py-24">
+<section id="about" class="mx-auto max-w-6xl px-6 py-16 sm:py-24">
     <div class="reveal">
         <p class="text-sm font-semibold uppercase tracking-widest text-accent-cyan">About</p>
         <h2 class="section-title mt-2">Who I am</h2>
     </div>
 
-    <div class="mt-10 grid items-center gap-10 grid-cols-[360px_1fr]">
+    <div class="mt-10 grid items-center gap-10 lg:grid-cols-[360px_1fr]">
         {{-- Profile photo --}}
         <div class="reveal">
             <div class="relative mx-auto w-full max-w-sm">
