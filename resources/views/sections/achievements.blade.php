@@ -24,7 +24,7 @@
                 @if (count($images))
                     <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
                         @foreach ($images as $img)
-                            <img src="{{ asset($img) }}" alt="{{ $title }}" class="w-full rounded-lg object-cover shadow-md">
+                            <img src="{{ asset($img) }}" alt="{{ $title }}" class="mx-auto max-h-48 w-auto rounded-lg shadow-md">
                         @endforeach
                     </div>
                 @endif
