@@ -108,38 +108,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    /* ---- PDF viewer: fetch as base64 JSON -> blob to bypass IDM ---- */
+    /* ---- PDF viewer: mobile -> new tab, desktop -> modal ---- */
+    const openCertificatePdf = async (btn) => {
+        const filePath = btn.dataset.filePath;
+        const title = btn.dataset.fileTitle;
+        if (!filePath) return;
+
+        try {
+            const res = await fetch(`/pdf-data?f=${encodeURIComponent(filePath)}`);
+            const json = await res.json();
+
+            const binary = atob(json.data);
+            const bytes = new Uint8Array(binary.length);
+            for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+
+            const blob = new Blob([bytes], { type: 'application/pdf' });
+            _pdfBlobUrl = URL.createObjectURL(blob);
+
+            imageModalPdf.src = _pdfBlobUrl;
+            imageModalImg.style.display = 'none';
+            imageModalPdf.style.display = '';
+            imageModalTitle.textContent = title || '';
+            imageModal.classList.remove('hidden');
+            imageModal.classList.add('flex');
+        } catch (err) {
+            console.error(err);
+            imageModalTitle.textContent = 'Gagal memuat sertifikat. File mungkin tidak tersedia.';
+            imageModalImg.style.display = 'none';
+            imageModalPdf.style.display = 'none';
+            imageModal.classList.remove('hidden');
+            imageModal.classList.add('flex');
+        }
+    };
+
     document.querySelectorAll('.open-pdf-btn').forEach((btn) => {
-        btn.addEventListener('click', async () => {
-            const filePath = btn.dataset.filePath;
-            const title = btn.dataset.fileTitle;
-            if (!filePath) return;
-
-            try {
-                const res = await fetch(`/pdf-data?f=${encodeURIComponent(filePath)}`);
-                const json = await res.json();
-
-                const binary = atob(json.data);
-                const bytes = new Uint8Array(binary.length);
-                for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
-
-                const blob = new Blob([bytes], { type: 'application/pdf' });
-                _pdfBlobUrl = URL.createObjectURL(blob);
-
-                imageModalPdf.src = _pdfBlobUrl;
-                imageModalImg.style.display = 'none';
-                imageModalPdf.style.display = '';
-                imageModalTitle.textContent = title || '';
-                imageModal.classList.remove('hidden');
-                imageModal.classList.add('flex');
-            } catch (err) {
-                console.error(err);
-                imageModalTitle.textContent = 'Gagal memuat sertifikat. File mungkin tidak tersedia.';
-                imageModalImg.style.display = 'none';
-                imageModalPdf.style.display = 'none';
-                imageModal.classList.remove('hidden');
-                imageModal.classList.add('flex');
+        btn.addEventListener('click', () => {
+            if (window.innerWidth < 768) {
+                const pdfUrl = btn.dataset.pdfUrl;
+                if (pdfUrl) window.open(pdfUrl, '_blank');
+                return;
             }
+            openCertificatePdf(btn);
         });
     });
 

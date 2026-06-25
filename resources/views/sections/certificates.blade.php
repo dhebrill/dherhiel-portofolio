@@ -21,6 +21,7 @@
                     <button type="button"
                             data-file-path="{{ $cert->image_path }}"
                             data-file-title="{{ $cert->title }}"
+                            data-pdf-url="{{ route('pdf-file', ['f' => $cert->image_path]) }}"
                             class="inline-flex items-center gap-2 rounded-full border border-accent-cyan/30 px-4 py-2 text-sm font-medium text-accent-cyan transition hover:bg-accent-cyan/10 hover:shadow-glow open-pdf-btn">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
