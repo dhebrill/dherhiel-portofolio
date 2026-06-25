@@ -28,7 +28,7 @@ return [
     ],
 
     'socials' => [
-        ['label' => 'LinkedIn', 'url' => '#', 'icon' => 'linkedin'],
+        ['label' => 'LinkedIn', 'url' => 'https://www.linkedin.com/in/muhammad-dherhiel-ar-ramidza-641746255', 'icon' => 'linkedin'],
         ['label' => 'GitHub',   'url' => '#', 'icon' => 'github'],
     ],
 
