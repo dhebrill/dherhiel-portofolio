@@ -59,7 +59,13 @@ return [
     ],
 
     'achievements' => [
-        '2nd Place IT Bootcamp Software Development for Industry (Campus Level)',
+        [
+            'title'  => '2nd Place IT Bootcamp Software Development for Industry (Campus Level)',
+            'images' => [
+                'images/docum 1.jpeg',
+                'images/docum 2.jpeg',
+            ],
+        ],
     ],
 
     'projects' => [
